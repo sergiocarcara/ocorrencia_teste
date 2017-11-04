@@ -1,0 +1,56 @@
+{% extends "base/base.html" %}
+
+<!--Incluindo o titulo -->
+{% block titulo%}OCORRÊNCIA | POLÍTICA{% endblock%}
+
+{% block menu %}
+{% include 'base/nav_menu_politica.html' %}
+{% endblock %}
+
+<!--Incluindo o Conteudo do Site-->
+{% block conteudo %}
+{% load staticfiles %}
+
+  <div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+      <div class="col s12 m12">
+          <h4>Política</h4><hr style="border-bottom:2px solid blue">
+          {% include 'include/data.html' %}
+      </div>
+        {% for poster in posts_politica  %}
+       <div class="row">
+          <div class="col s12 m12">
+            <div class="card horizontal">
+              <div class="card-image">
+                <img src="{{ poster.imagen.url }}" width="100" height="100">
+              </div>
+              <div class="card-stacked">
+                <div class="card-content">
+                  <a href="/politica_detalhes/{{poster.id}}"><p><h5>{{ poster.titulo}}</h5></p></a>
+                </div>
+                <div class="card-action">
+                  <a href="/politica_detalhes/{{poster.id}}">Data da Publicação {{ poster.data_publicacao }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+       </div>
+      {% endfor %}
+<div class="row">
+  <div class="col s12 m5">
+    <div class="card-panel teal">
+        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+        I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+        </span>
+     </div>
+  </div>
+</div>
+
+
+
+
+    </div> <!--   Fim  Section   -->
+    <br><br>
+  </div>  <!--  Fim Container   -->
+{% endblock %}

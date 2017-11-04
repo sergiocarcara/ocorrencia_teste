@@ -1,0 +1,100 @@
+{% extends "base/base.html" %}
+
+<!--Incluindo o titulo -->
+{% block titulo%}OCORRÊNCIA | POLÍCIA{% endblock%}
+
+{% block menu %}
+{% include 'base/nav_menu_policia.html' %}
+{% endblock %}
+
+<!--Incluindo o Conteudo do Site-->
+{% block conteudo %}
+{% load staticfiles %}
+
+  <div class="container">
+    <div class="section">
+        <!--   Icon Section   -->
+        <div class="col s12 m12">
+          <h4>Polícia</h4><hr style="border-bottom:2px solid blue">
+          {% include 'include/data.html' %}
+        </div>
+
+
+         <div class="row">
+
+            <!-- Poster Policia-->
+            <div class="col s12 m9">
+              <div class="card ">
+                <div class="card-content black-text" >
+                  <span class="card-title" ><h3 ><b >{{ poster_detalhes.titulo }}</b></h3><hr></span>
+                  <div >
+                      <img class="materialboxed" width="350" src="{{ poster_detalhes.imagen.url }}" style="float: left; padding: 15px">
+                  <p><h5>{{ poster_detalhes.texto|safe}}</h5></p><br>
+
+                  </div>
+                  <p>Data de Publicação: {{ poster_detalhes.data_publicacao}}</p>
+                </div>
+                <div class="card-action">
+                  <a href="http://www.rondoniagora.com/policia/dupla-tenta-assaltar-mercado-e-e-flagrada-por-guarnicao-da-pm">Fonte: <h5>{{ poster_detalhes.fonte }}</h5></a>
+                </div>
+              </div>
+            </div>
+           <!-- Fim Poster Policia-->
+
+           <!-- Poster propaganda-->
+            <div class="col s12 m3">
+              <div class="card ">
+                <div class="card-content black-text" >
+                  <span class="card-title" ><h3 ><b >Aqui Propaganda</b></h3><hr></span>
+                  <div >
+                      <img class="materialboxed" width="350" src="#" style="float: left; padding: 15px">
+                  <p><h5>Detalhe da propaganda</h5></p><br>
+
+                  </div>
+                  <p>Data de Publicação:</p>
+                </div>
+                <div class="card-action">
+                  <a href="#">Fonte: <h5>cliente</h5></a>
+                </div>
+              </div>
+            </div>
+           <!-- Fim Poster propaganda-->
+
+         </div><!-- fim row-->
+
+      <div class="col s12 m12">
+          <h4>Mais Notícias</h4><hr style="border-bottom:2px solid blue">
+      </div>
+
+
+      <div class="row">
+          {% for poster in poster %}
+
+            <div class="col s12 m3">
+              <div class="card small">
+                <div class="card-image">
+                    <img src="{{ poster.imagen.url }}" width="80" height="190">
+                </div>
+                <div class="card-content">
+
+                        <a href="/policia_detalhes/{{poster.id}}" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        <span class="card-title">{{ poster.titulo}}</span>
+                        <!--<p>{{ poster.texto1|truncatechars:200}}</p>-->
+
+                </div>
+
+              </div>
+            </div>
+
+          {% endfor %}
+      </div>
+   <!-- <h5><a href="/policia_poster/">Polícia</a> | <a href="/politica_poster/">Política</a></h5> -->
+
+
+
+
+
+    </div> <!--   Fim  Section   -->
+    <br><br>
+  </div>  <!--  Fim Container   -->
+{% endblock %}

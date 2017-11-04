@@ -1,0 +1,34 @@
+{% load static from staticfiles%}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<!--Incluindo cabeçalho css -->
+<title>{% block titulo%}{% endblock%}</title>
+{% include 'base/head.html' %}
+
+</head>
+<body>
+<!--Incluindo menu-->
+{% block menu %}
+
+{% endblock%}
+
+<!--Bloco de conteudo do site-->
+{% block conteudo%}
+
+
+{% block rede %}{% endblock rede%}
+
+{% endblock %}
+
+  <footer class="page-footer orange">
+  <!--Incluindo rodapé-->
+{% include 'base/footer.html' %}
+  </footer>
+
+
+  <!--  Scripts-->
+  {% include 'base/js.html' %}
+
+  </body>
+</html>
