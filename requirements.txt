@@ -33,7 +33,7 @@ gunicorn==19.7.1
 html5lib==0.999
 httplib2==0.10.3
 ipython==3.1.0
-lxml==3.3.3
+lxml==4.6.3
 oauth2client==4.0.0
 oauthlib==0.7.2
 olefile==0.44
