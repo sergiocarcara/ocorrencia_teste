@@ -30,7 +30,7 @@ django-utils2==2.2.1
 djangotoolbox==1.6.2
 google-api-python-client==1.4.1
 gunicorn==19.7.1
-html5lib==0.999
+html5lib==0.999999999
 httplib2==0.10.3
 ipython==3.1.0
 lxml==3.3.3
